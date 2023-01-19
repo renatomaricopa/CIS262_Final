@@ -1,15 +1,7 @@
-using HighSchoolClasses.DAL;
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
-// Adding Dependency Injection
-builder.Services.AddTransient<IStudentAdapter, StudentAdapter>();
-builder.Services.AddTransient<ITeacherAdapter,TeacherAdapter>();
-builder.Services.AddTransient<IExamAdapter, ExamAdapter>();
 
 var app = builder.Build();
 

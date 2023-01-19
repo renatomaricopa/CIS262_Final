@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighSchoolApplication", "HighSchoolApplication\HighSchoolApplication.csproj", "{FEAA9388-75D0-4D39-9807-CAFAE3DF060A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HighSchoolApplication", "HighSchoolApplication\HighSchoolApplication.csproj", "{FEAA9388-75D0-4D39-9807-CAFAE3DF060A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighSchoolClasses.DAL", "HighSchoolClasses.DAL\HighSchoolClasses.DAL.csproj", "{CDCFD4C3-D26C-4984-B243-9113903322A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{FEAA9388-75D0-4D39-9807-CAFAE3DF060A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEAA9388-75D0-4D39-9807-CAFAE3DF060A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEAA9388-75D0-4D39-9807-CAFAE3DF060A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDCFD4C3-D26C-4984-B243-9113903322A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDCFD4C3-D26C-4984-B243-9113903322A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDCFD4C3-D26C-4984-B243-9113903322A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDCFD4C3-D26C-4984-B243-9113903322A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
