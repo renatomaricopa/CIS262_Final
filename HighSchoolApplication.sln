@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HighSchoolApplication", "HighSchoolApplication\HighSchoolApplication.csproj", "{FEAA9388-75D0-4D39-9807-CAFAE3DF060A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighSchoolClasses.DAL", "HighSchoolClasses.DAL\HighSchoolClasses.DAL.csproj", "{CDCFD4C3-D26C-4984-B243-9113903322A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HighSchoolClasses.DAL", "HighSchoolClasses.DAL\HighSchoolClasses.DAL.csproj", "{CDCFD4C3-D26C-4984-B243-9113903322A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
