@@ -3,8 +3,31 @@
 @{
     ViewData["Title"] = "Student";
 }
-
 <div class="text-center">
     <h1 class="display-4">@ViewData["Title"]</h1>
     <p>Welcome to the @ViewData["Title"] page.</p>
 </div>
+@if (Model.IsSuccess)
+{
+    <p>
+        Thank you for your submission.
+    </p>
+}
+else
+{
+        <form method="post">
+            <div class="row">
+                <div class="col">
+                    <label asp-for="FirstName">First Name: </label><br />
+                    <input class="form-control" type="text" placeholder="Enter First Name" asp-for="FirstName" /><br />
+                </div>
+                <div class="col">
+                    <label asp-for="LastName">Last Name: </label><br />
+                    <input class="form-control" type="text" placeholder="Enter Last Name" asp-for="LastName" /><br />
+                </div>
+            </div>
+                <button>Submit</button>
+        </form>
+}
+
+
