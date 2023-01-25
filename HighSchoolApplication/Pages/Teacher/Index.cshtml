@@ -8,3 +8,55 @@
     <h1 class="display-4">@ViewData["Title"]</h1>
     <p>Welcome to the @ViewData["Title"] page.</p>
 </div>
+
+
+<table cellpadding="5">
+    <tr>
+        <th>
+            Teacher Id
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            View Students
+        </th>
+        <th>
+            Edit
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+    @foreach (HighSchoolClasses.DAL.Teacher teacher in Model.Teachers)
+    {
+        <tr>
+            <td>
+                @teacher.TeacherId
+            </td>
+            <td>
+                @teacher.FirstName
+            </td>
+            <td>
+                @teacher.LastName
+            </td>
+            <td>
+                <a asp-page="/Invoice" asp-route-id="@teacher.TeacherId">View Students</a>
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@teacher.TeacherId">Edit</a>
+            </td>
+            <td>
+                <a asp-page="./Delete" asp-route-id="@teacher.TeacherId">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<div>
+    <a asp-page="./Edit">Add a New Teacher</a>
+</div>
+

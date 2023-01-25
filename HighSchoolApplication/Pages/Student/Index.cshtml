@@ -7,7 +7,61 @@
     <h1 class="display-4">@ViewData["Title"]</h1>
     <p>Welcome to the @ViewData["Title"] page.</p>
 </div>
-@if (Model.IsSuccess)
+
+<table cellpadding="5">
+    <tr>
+        <th>
+            Student Id
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            View Grades
+        </th>
+        <th>
+            Edit
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+    @foreach (HighSchoolClasses.DAL.Student student in Model.Students)
+    {
+        <tr>
+            <td>
+                @student.StudentId
+            </td>
+            <td>
+                @student.FirstName
+            </td>
+            <td>
+                @student.LastName
+            </td>
+            <td>
+                <a asp-page="/Invoice" asp-route-id="@student.StudentId">View Grades</a>
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@student.StudentId">Edit</a>
+            </td>
+            <td>
+                <a asp-page="./Delete" asp-route-id="@student.StudentId">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<div>
+    <a asp-page="./Edit">Add a New Student</a>
+</div>
+
+
+
+
+@*@if (Model.IsSuccess)
 {
     <p>
         Thank you for your submission.
@@ -29,5 +83,5 @@ else
                 <button>Submit</button>
         </form>
 }
-
+*@
 

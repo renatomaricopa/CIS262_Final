@@ -13,13 +13,13 @@ namespace HighSchoolClasses.DAL
     public class StudentAdapter : IStudentAdapter
     {
         // Database path
-        private string connectionString = @"Data Source = C:\sqlite\School.db";
+        private readonly string connectionString = @"Data Source = C:\sqlite\School.db";
 
         // GetAllStudents Method
         public IEnumerable<Student> GetAllStudents()
         {
             string sql = "SELECT StudentId, FirstName, LastName FROM Student";
-            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            using SqliteConnection connection = new(connectionString);
             {
                 return connection.Query<Student>(sql);
             }
@@ -27,7 +27,7 @@ namespace HighSchoolClasses.DAL
         public Student GetStudentById(int id)
         {
             string sql = @"SELECT StudentId, FirstName, LastName FROM Student WHERE StudentId = @StudentId";
-            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            using SqliteConnection connection = new(connectionString);
             {
                 return connection.QueryFirst<Student>(sql, new { StudentId = id });
             }
@@ -35,7 +35,7 @@ namespace HighSchoolClasses.DAL
         public bool InsertStudent(Student student)
         {
             string sql = "INSERT INTO Student (FirstName, LastName) VALUES (@FirstName, @LastName)";
-            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            using SqliteConnection connection = new(connectionString);
             {
                 int rowsAffected = connection.Execute(sql, student);
                 if (rowsAffected > 0)
@@ -54,7 +54,7 @@ namespace HighSchoolClasses.DAL
         public bool UpdateStudent(Student student)
         {
             string sql = @"UPDATE Student SET FirstName = @FirstName, LastName = @LastName WHERE StudentId = @StudentId";
-            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            using SqliteConnection connection = new(connectionString);
             {
                 int rowsAffected = connection.Execute(sql, student);
                 if (rowsAffected > 0)
@@ -72,7 +72,7 @@ namespace HighSchoolClasses.DAL
         public bool DeleteStudentById(int id)
         {
             string sql = "DELETE FROM Student WHERE StudentId = @StudentId";
-            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            using SqliteConnection connection = new(connectionString);
             {
                 int rowsAffected = connection.Execute(sql, new { StuentId = id });
                 if (rowsAffected > 0)
