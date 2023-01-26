@@ -2,3 +2,15 @@
 @model HighSchoolApplication.Pages.Exam.DeleteModel
 @{
 }
+@if (Model.IsSuccess)
+{
+    <p>
+        You successfully deleted id: @Model.Id
+    </p>
+}
+else
+{
+    <p>
+        There was an issue deleting id: @Model.Id
+    </p>
+}

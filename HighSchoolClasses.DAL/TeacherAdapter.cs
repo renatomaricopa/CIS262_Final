@@ -34,7 +34,7 @@ namespace HighSchoolClasses.DAL
         }
         public bool InsertTeacher(Teacher teacher)
         {
-            string sql = "INSERT INTO Teac (FirstName, LastName) VALUES (@FirstName, @LastName)";
+            string sql = "INSERT INTO Teacher (FirstName, LastName) VALUES (@FirstName, @LastName)";
             using SqliteConnection connection = new(connectionString);
             {
                 int rowsAffected = connection.Execute(sql, teacher);

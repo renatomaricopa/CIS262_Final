@@ -17,26 +17,27 @@ namespace HighSchoolApplication.Pages.Exam
 
         [BindProperty]
         [Required]
-        public string FirstName { get; set; }
+        public int StudentId { get; set; }
         [BindProperty]
         [Required]
-        public string LastName { get; set; }
+        public int ExamId { get; set; }
+        [BindProperty]
+        public int Score { get; set; }
         public bool IsSuccess { get; set; }
         public List<SelectListItem> Exam { get; set; }
-        [BindProperty]
-        public int ExamId { get; set; }
+
 
 
         public void OnGet(int id = 0)
         {
             if (id != 0)
             {
-                HighSchoolClasses.DAL.Exam exam = _examAdapter.GetExamById(id);
+                HighSchoolClasses.DAL.Exam exam = _examAdapter.GetExamByStudentId(id);
                 if (exam != null)
                 {
-                    FirstName = exam.FirstName;
-                    LastName = exam.LastName;
-                    ExamId = exam.StudentId;
+                    ExamId = exam.ExamId;
+                    StudentId = exam.StudentId;
+                    ExamId = exam.Score;
                 }
             }
         }
@@ -45,9 +46,9 @@ namespace HighSchoolApplication.Pages.Exam
             if (ModelState.IsValid)
             {
                 HighSchoolClasses.DAL.Exam exam = new HighSchoolClasses.DAL.Exam();
-                exam.FirstName = FirstName;
-                exam.LastName = LastName;
+                exam.StudentId = StudentId;
                 exam.ExamId = ExamId;
+                exam.Score = Score;
 
                 if (ExamId > 0)
                 {

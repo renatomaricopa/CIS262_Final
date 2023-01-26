@@ -74,7 +74,8 @@ namespace HighSchoolClasses.DAL
             string sql = "DELETE FROM Student WHERE StudentId = @StudentId";
             using SqliteConnection connection = new(connectionString);
             {
-                int rowsAffected = connection.Execute(sql, new { StuentId = id });
+                int rowsAffected = connection.Execute(sql, new { StudentId = id });
+
                 if (rowsAffected > 0)
                 {
                     return true;

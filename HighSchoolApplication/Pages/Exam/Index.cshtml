@@ -9,24 +9,24 @@
     <p>Welcome to the @ViewData["Title"] page.</p>
 </div>
 
-<table cellpadding="5">
+<table class="table table-stripped" cellpadding="4">
     <tr>
-        <th>
+        <th scope="col">
             Exam Id
         </th>
-        <th>
+        <th scope="col">
             Student Id
         </th>
-        <th>
+        <th scope="col">
             Grade
         </th>
-       <th>
+       <th action="col">
             Letter Grade
         </th>
-        <th>
+        <th scope="col">
             Edit
         </th>
-        <th>
+        <th scope="col">
             Delete
         </th>
     </tr>
@@ -42,10 +42,9 @@
             </td>
             <td>
                 @exam.Score.ToString()
-                @exam.Score.ToString("N")
             </td>
             <td>
-                (@exam.Score + 100)
+                @exam.Grade
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@exam.ExamId">Edit</a>
@@ -59,6 +58,6 @@
 
 <div>
 
-    <a asp-page="./Edit">Add a New Invoice</a>
+    <a asp-page="./Edit">Add a New Exam</a>
 
 </div>

@@ -12,6 +12,10 @@
         public int ExamId { get; set; }
         public int StudentId { get; set; }
         public int Score { get; set; }
+
+        // Added this so we can create an Exam object that has a Grade property
+        public string Grade { get; set; }
+
         
     }
     
