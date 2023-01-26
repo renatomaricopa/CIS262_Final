@@ -20,7 +20,7 @@ namespace HighSchoolClasses.DAL
 
         public IEnumerable<Report> GetGrades()
         {
-            string sql = @"SELECT "
+            //string sql = @"SELECT "
         }
 
     }
