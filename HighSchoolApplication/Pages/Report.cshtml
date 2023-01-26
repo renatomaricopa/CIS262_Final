@@ -1,0 +1,96 @@
+﻿@page
+@model HighSchoolApplication.Pages.ReportModel
+@{
+}
+
+
+<div class="text-center">
+
+    <h2>Sales By Country</h2>
+
+</div>
+
+<div class="row justify-content-center">
+    <div class="table">
+        <div class="col-auto">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+
+                        <th scope="col">Country</th>
+
+                        <th scope="col">Sales</th>
+
+                    </tr>
+                </thead>
+                @foreach (var row in Model.ReportRows)
+
+                {
+
+                    <tr>
+
+                        <td>@row.Country</td>
+
+                        <td>@row.Total.ToString("C2")</td>
+
+                    </tr>
+
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+<center><h2>Sales By Country (Pie Chart)</h2></center>
+
+<canvas id="myPieChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
+
+<script>
+      var mychart = document.getElementById("myPieChart").getContext('2d');
+
+      let data = @Json.Serialize(Model.ReportRows);
+
+      let round_graph = new Chart(mychart, {
+      type: 'pie',
+      data: {
+        labels: data.map(o => o.country),
+        datasets: [{
+          lable: 'Sales by Country',
+          data: data.map(o => o.total),
+          backgroundColor: [
+              '#16b751',
+              '#e5edce',
+              '#0c8cd6',
+              '#436972',
+              '#1b2615',
+              '#74b7d3',
+              '#338484',
+              '#847e6f',
+              '#878785',
+              '#300147',
+              '#647260',
+              '#dde0d9',
+              '#63cc67',
+              '#d7e0dc',
+              '#c8bdef',
+              '#6b6b6b',
+              '#f2dade',
+              '#563e35',
+              '#c98e22',
+              '#050402',
+              '#1fdfe2',
+              '#21191b',
+              '#206357',
+              '#ed68ff'
+
+              ],
+          hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+          hoverBorderColor: "rgba(234, 236, 244, 1)",
+        }]
+      }
+
+    })
+
+</script>
