@@ -1,8 +1,8 @@
 ﻿@page
 @model HighSchoolApplication.Pages.ReportModel
 @{
+    ViewData["Title"] = "Report";
 }
-
 
 <div class="text-center">
     <h1 class="display-4">@ViewData["Title"]</h1>
@@ -11,9 +11,6 @@
 
 <table class="table table-stripped" cellpadding="4">
     <tr>
-        <th scope="col">
-            Exam Id
-        </th>
         <th scope="col">
             Student First Name
         </th>
@@ -26,52 +23,38 @@
         <th action="col">
             Letter Grade
         </th>
-        <th scope="col">
-            Edit
-        </th>
-        <th scope="col">
-            Delete
-        </th>
     </tr>
 
-    @foreach (HighSchoolClasses.DAL.Exam exam in Model.Exams)
+    @foreach (HighSchoolClasses.DAL.Report report in Model.Reports)
     {
         <tr>
             <td>
-                @exam.ExamId
-            </td>
-            <td>
-                @exam.FirstName
+                @report.FirstName
 
             </td>
             <td>
-                @exam.LastName
+                @report.LastName
 
             </td>
             <td>
-                @exam.Score.ToString()
+                @report.Score.ToString()
             </td>
             <td>
-                @exam.Grade
+                @report.Grade
             </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@exam.ExamId">Edit</a>
-            </td>
-            <td>
-                <a asp-page="./Delete" asp-route-id="@exam.ExamId">Delete</a>
-            </td>
+
         </tr>
     }
 </table>
 
-<div>
+@*<div>
 
     <a class="button" asp-page="./Edit">Add a New Exam</a>
 
 </div>
 
 
-<center><h2>Sales By Country (Pie Chart)</h2></center>
+<center><h2>Letter Grades by Student (Pie Chart)</h2></center>
 
 <canvas id="myPieChart"></canvas>
 
@@ -80,15 +63,15 @@
 <script>
     var mychart = document.getElementById("myPieChart").getContext('2d');
 
-    //let data = @Json.Serialize(Model.ReportRows);
+    let data = @Json.Serialize(Model.Reports);
 
     let round_graph = new Chart(mychart, {
         type: 'pie',
         data: {
-            labels: data.map(o => o.country),
+            labels: data.map(o => o.examId),
             datasets: [{
                 lable: 'Sales by Country',
-                data: data.map(o => o.total),
+                data: data.map(o => o.grade),
                 backgroundColor: [
                     '#16b751',
                     '#e5edce',
@@ -123,46 +106,7 @@
 
     })
 
-</script>
+</script>*@
 
 
 
-
-@*
-<div class="text-center">
-
-    <h2>Sales By Country</h2>
-
-</div>
-
-<div class="row justify-content-center">
-    <div class="table">
-        <div class="col-auto">
-            <table class="table table-responsive">
-                <thead>
-                    <tr>
-
-                        <th scope="col">Country</th>
-
-                        <th scope="col">Sales</th>
-
-                    </tr>
-                </thead>
-                @foreach (var row in Model.ReportRows)
-
-                {
-
-                    <tr>
-
-                        <td>@row.Country</td>
-
-                        <td>@row.Total.ToString("C2")</td>
-
-                    </tr>
-
-                }
-
-            </table>
-        </div>
-    </div>
-</div>*@

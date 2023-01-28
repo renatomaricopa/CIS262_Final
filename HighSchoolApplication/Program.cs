@@ -10,6 +10,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddTransient<IStudentAdapter, StudentAdapter>();
 builder.Services.AddTransient<ITeacherAdapter,TeacherAdapter>();
 builder.Services.AddTransient<IExamAdapter, ExamAdapter>();
+builder.Services.AddTransient<IReportAdapter, ReportAdapter>();
 
 var app = builder.Build();
 

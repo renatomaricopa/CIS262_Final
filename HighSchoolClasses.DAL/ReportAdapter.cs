@@ -19,64 +19,64 @@ namespace HighSchoolClasses.DAL
         private string connectionString = @"Data Source = C:\sqlite\School.db";
 
         // GetAllExams Method
-        public IEnumerable<Exam> GetAllExams()
-        {
-            string sql = "SELECT StudentId, ExamId, Score FROM Exam";
-            using (SqliteConnection connection = new SqliteConnection(connectionString))
+        //public IEnumerable<Report> GetAllExams()
+        //{
+        //    string sql = "SELECT StudentId, ExamId, Score FROM Exam";
+        //    using (SqliteConnection connection = new SqliteConnection(connectionString))
 
-            {
+        //    {
 
-                return connection.Query<Exam>(sql);
-            }
-        }
+        //        return connection.Query<Report>(sql);
+        //    }
+        //}
 
-        public IEnumerable<Exam> GetGradesByStudentId(int studentId)
-        {
-            using (SqliteConnection connection = new SqliteConnection(connectionString))
-            {
-                // Open the connection
-                connection.Open();
+        //public IEnumerable<Report> GetGradesByStudentId(int studentId)
+        //{
+        //    using (SqliteConnection connection = new SqliteConnection(connectionString))
+        //    {
+        //        // Open the connection
+        //        connection.Open();
 
-                // Define the SQL command
-                // Not working
-                //string sql = "SELECT Exam.ExamId, Exam.StudentId, Exam.Score, Student.FirstName, Student.LastName FROM Exam INNER JOIN Student WHERE Exam.StudentId = @ExamId";
-                string sql = "SELECT Exam.ExamId, Exam.StudentId, Exam.Score, Student.FirstName, Student.LastName FROM Exam, Student WHERE Exam.StudentId = @";
+        //        // Define the SQL command
+        //        // Not working
+        //        //string sql = "SELECT Exam.ExamId, Exam.StudentId, Exam.Score, Student.FirstName, Student.LastName FROM Exam INNER JOIN Student WHERE Exam.StudentId = @ExamId";
+        //        string sql = "SELECT Exam.ExamId, Exam.StudentId, Exam.Score, Student.FirstName, Student.LastName FROM Exam, Student WHERE Exam.StudentId = @StudentId";
 
-                // Create a new command object
-                using (SqliteCommand command = new SqliteCommand(sql, connection))
-                {
-                    // Execute the command and retrieve the results
-                    using (SqliteDataReader reader = command.ExecuteReader())
-                    {
-                        // Iterate through the results
-                        while (reader.Read())
-                        {
-                            // Retrieve the data from the current row
-                            int examId = reader.GetInt32(0);
-                            int studentGradeId = reader.GetInt32(1);
-                            int score = reader.GetInt32(2);
-                            string letterGrade = GetLetterGrade(score);
-                            string firstName = reader.GetString(3);
-                            string lastName = reader.GetString(4);
-
-
-
-                            yield return new Exam { ExamId = examId, StudentId = studentGradeId, Score = score, Grade = letterGrade, FirstName = firstName, LastName = lastName };
+        //        // Create a new command object
+        //        using (SqliteCommand command = new SqliteCommand(sql, connection))
+        //        {
+        //            // Execute the command and retrieve the results
+        //            using (SqliteDataReader reader = command.ExecuteReader())
+        //            {
+        //                // Iterate through the results
+        //                while (reader.Read())
+        //                {
+        //                    // Retrieve the data from the current row
+        //                    int examId = reader.GetInt32(0);
+        //                    int studentGradeId = reader.GetInt32(1);
+        //                    int score = reader.GetInt32(2);
+        //                    string letterGrade = GetLetterGrade(score);
+        //                    string firstName = reader.GetString(3);
+        //                    string lastName = reader.GetString(4);
 
 
 
-                        }
-
-
-                    }
-                }
-            }
-
-        }
+        //                    yield return new Report { ExamId = examId, StudentId = studentGradeId, Score = score, Grade = letterGrade, FirstName = firstName, LastName = lastName };
 
 
 
-        public IEnumerable<Exam> GetAllExamsAsGrades()
+        //                }
+
+
+        //            }
+        //        }
+        //    }
+
+        //}
+
+
+
+        public IEnumerable<Report> GetAllExamsAsGrades()
         {
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
@@ -106,7 +106,7 @@ namespace HighSchoolClasses.DAL
 
 
 
-                            yield return new Exam { ExamId = examId, StudentId = studentId_grades, Score = score, Grade = letterGrade, FirstName = firstName, LastName = lastName };
+                            yield return new Report { ExamId = examId, StudentId = studentId_grades, Score = score, Grade = letterGrade, FirstName = firstName, LastName = lastName };
 
 
                         }

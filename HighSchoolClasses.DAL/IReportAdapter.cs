@@ -2,8 +2,6 @@
 {
     public interface IReportAdapter
     {
-        IEnumerable<Exam> GetAllExams();
-        IEnumerable<Exam> GetAllExamsAsGrades();
-        IEnumerable<Exam> GetGradesByStudentId(int studentId);
+        IEnumerable<Report> GetAllExamsAsGrades();
     }
 }
