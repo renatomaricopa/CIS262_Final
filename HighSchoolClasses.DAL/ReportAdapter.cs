@@ -18,10 +18,10 @@ namespace HighSchoolClasses.DAL
         private string connectionString = @"Data Source = C:\Sqlite\School.db";
 
 
-        public IEnumerable<Report> GetGrades()
-        {
-            //string sql = @"SELECT "
-        }
+        //public IEnumerable<Report> GetGrades()
+        //{
+        //    //string sql = @"SELECT "
+        //}
 
     }
 

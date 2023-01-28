@@ -20,7 +20,7 @@
             Last Name
         </th>
         <th scope="col">
-            View Grades
+            Add Exam
         </th>
         <th scope="col">
             Edit
@@ -42,13 +42,13 @@
                 @student.LastName
             </td>
             <td>
-                <a asp-page="/Invoice" asp-route-id="@student.StudentId">View Grades</a>
+                <a asp-page="../Exam/Index" asp-route-id="@student.StudentId">Add Exam</a>
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@student.StudentId">Edit</a>
+                <a asp-page="./Edit" asp-route-id="@student.StudentId">Edit Student</a>
             </td>
             <td>
-                <a asp-page="./Delete" asp-route-id="@student.StudentId">Delete</a>
+                <a asp-page="./Delete" asp-route-id="@student.StudentId">Delete Student</a>
             </td>
         </tr>
     }

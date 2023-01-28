@@ -7,9 +7,9 @@ namespace HighSchoolApplication.Pages
 {
     public class ReportModel : PageModel
     {
-        private IReport
-        public void OnGet()
-        {
-        }
+        //private IReport
+        //public void OnGet()
+        //{
+        //}
     }
 }

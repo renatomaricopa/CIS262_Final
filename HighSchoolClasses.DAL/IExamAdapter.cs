@@ -5,7 +5,7 @@
         bool DeleteExamById(int id);
         IEnumerable<Exam> GetAllExams();
         IEnumerable<Exam> GetAllExamsAsGrades();
-        Exam GetExamByStudentId(int id);
+        IEnumerable<Exam> GetGradesByStudentId(int studentId);
         bool InsertExam(Exam exam);
         bool UpdateExam(Exam exam);
     }

@@ -16,6 +16,10 @@
         // Added this so we can create an Exam object that has a Grade property
         public string Grade { get; set; }
 
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+
         
     }
     

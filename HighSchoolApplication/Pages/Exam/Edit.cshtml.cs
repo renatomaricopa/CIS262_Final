@@ -4,22 +4,32 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 using HighSchoolClasses.DAL;
+using System.ComponentModel;
 
 namespace HighSchoolApplication.Pages.Exam
 {
     public class EditModel : PageModel
     {
         private IExamAdapter _examAdapter;
-        public EditModel(IExamAdapter examAdapter)
+        private IStudentAdapter _studentAdapter;
+
+        public EditModel(IExamAdapter examAdapter, IStudentAdapter studentAdapter)
         {
             _examAdapter = examAdapter;
+            _studentAdapter = studentAdapter;
         }
-
+        public List<SelectListItem> StudentOptions { get; set; }
         [BindProperty]
-        [Required]
+        [DisplayName("Student")]
+        [Range(1, double.MaxValue,
+        ErrorMessage = "Please select a student")]
+
+  
         public int StudentId { get; set; }
         [BindProperty]
-        [Required]
+        [Range(1, 15000)]
+
+     
         public int ExamId { get; set; }
         [BindProperty]
         public int Score { get; set; }
@@ -28,11 +38,13 @@ namespace HighSchoolApplication.Pages.Exam
 
 
 
-        public void OnGet(int id = 0)
+        public void OnGet(int studentId = 0)
         {
-            if (id != 0)
+            if (studentId > 0)
             {
-                HighSchoolClasses.DAL.Exam exam = _examAdapter.GetExamByStudentId(id);
+                //HighSchoolClasses.DAL.Exam exam = (HighSchoolClasses.DAL.Exam)_examAdapter.GetGradesByStudentId(studentId);
+                HighSchoolClasses.DAL.Exam exam = (HighSchoolClasses.DAL.Exam)_examAdapter.GetGradesByStudentId(studentId);
+
                 if (exam != null)
                 {
                     ExamId = exam.ExamId;

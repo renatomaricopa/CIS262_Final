@@ -15,7 +15,10 @@
             Exam Id
         </th>
         <th scope="col">
-            Student Id
+            Student First Name
+        </th>
+        <th scope="col">
+            Student Last Name
         </th>
         <th scope="col">
             Grade
@@ -38,7 +41,12 @@
                 @exam.ExamId
             </td>
             <td>
-                @exam.StudentId
+                @exam.FirstName
+
+            </td>
+            <td>
+                @exam.LastName
+
             </td>
             <td>
                 @exam.Score.ToString()

@@ -30,13 +30,16 @@ namespace HighSchoolApplication.Pages.Exam
 
             if (id == 0)
             {
-                Exams = _examAdapter.GetAllExams();
+                //Exams = _examAdapter.GetAllExams();
+                //Exams = _examAdapter.GetGrades();
+                Exams = _examAdapter.GetAllExamsAsGrades();
                 
                 //Grades = _examAdapter.ConvertGraddeToLetter(id);
             }
             else
             {
-                Exams = (IEnumerable<HighSchoolClasses.DAL.Exam>)_examAdapter.GetExamByStudentId(id);
+                //Exams = _examAdapter.GetExamByStudentId(id);
+                Exams = _examAdapter.GetGradesByStudentId(id);
             }
         }
 
