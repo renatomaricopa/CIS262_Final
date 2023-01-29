@@ -4,9 +4,13 @@
 }
 @if (Model.IsSuccess)
 {
-    <p>
+    <div class="alert alert-success">
         You created a new entry: @Model.FirstName @Model.LastName
-    </p>
+    </div>
+    <div>
+        <a class="btn btn-primary " asp-page="./Edit">Add a New Teacher</a>
+        <a class="btn btn-primary " asp-page="/Teacher/Index">Return to Teacher Page</a>
+    </div>
 }
 else
 {

@@ -4,13 +4,21 @@
 }
 @if (Model.IsSuccess)
 {
-    <p>
-        You successfully deleted id: @Model.Id
-    </p>
+    <div class="alert alert-success">
+        You succesfully deleted id @Model.Id
+    </div>
+    <div>
+        <a class="btn btn-primary " asp-page="./Edit">Add a New Exam</a>
+        <a class="btn btn-primary " asp-page="/Exam/Index">Return to Exam Page</a>
+    </div>
 }
 else
 {
-    <p>
-        There was an issue deleting id: @Model.Id
-    </p>
+    <div class="alert alert-success">
+        There was an issue deleting id @Model.Id
+    </div>
+    <div>
+        <a class="btn btn-primary " asp-page="./Edit">Add a New Exam</a>
+        <a class="btn btn-primary " asp-page="/Exam/Index">Return to Exam Page</a>
+    </div>
 }

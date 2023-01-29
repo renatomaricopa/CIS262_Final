@@ -9,25 +9,25 @@
     <p>Welcome to the @ViewData["Title"] page.</p>
 </div>
 
+<div>
+    <a class="btn btn-primary" asp-page="./Edit">Add a New Teacher</a>
+</div>
 
-<table cellpadding="5">
+<table class=" table table-stripped" cellpadding="4"
     <tr>
-        <th>
+        <th  scope="col">
             Teacher Id
         </th>
-        <th>
+        <th scope="col">
             First Name
         </th>
-        <th>
+        <th scope="col">
             Last Name
         </th>
-@*        <th>
-            View Students
-        </th>*@
-        <th>
+        <th scope="col">
             Edit
         </th>
-        <th>
+        <th scope="col">
             Delete
         </th>
     </tr>
@@ -43,20 +43,14 @@
             <td>
                 @teacher.LastName
             </td>
-@*            <td>
-                <a asp-page="/Invoice" asp-route-id="@teacher.TeacherId">View Students</a>
-            </td>*@
             <td>
-                <a asp-page="./Edit" asp-route-id="@teacher.TeacherId">Edit</a>
+                    <a class="btn btn-outline-warning" asp-page="./Edit" asp-route-id="@teacher.TeacherId">Edit Teacher</a>
             </td>
             <td>
-                <a asp-page="./Delete" asp-route-id="@teacher.TeacherId">Delete</a>
+                    <a class="btn btn-outline-danger "asp-page="./Delete" asp-route-id="@teacher.TeacherId">Delete Teacher</a>
             </td>
         </tr>
     }
 </table>
 
-<div>
-    <a asp-page="./Edit">Add a New Teacher</a>
-</div>
 

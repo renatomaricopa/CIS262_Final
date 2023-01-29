@@ -9,6 +9,12 @@
     <p>Welcome to the @ViewData["Title"] page.</p>
 </div>
 
+<div>
+
+    <a class="btn btn-primary" asp-page="./Edit">Add a New Exam</a>
+
+</div>
+
 <table class="table table-stripped" cellpadding="4">
     <tr>
         <th scope="col">
@@ -49,17 +55,13 @@
                 @exam.Score.ToString()
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@exam.ExamId">Edit</a>
+                <a class="btn btn-outline-warning" asp-page="./Edit" asp-route-id="@exam.ExamId">Edit Exam</a>
             </td>
             <td>
-                <a asp-page="./Delete" asp-route-id="@exam.ExamId">Delete</a>
+                <a class="btn btn-outline-danger " asp-page="./Delete" asp-route-id="@exam.ExamId">Delete Exam</a>
             </td>
         </tr>
     }
 </table>
 
-<div>
 
-    <a asp-page="./Edit">Add a New Exam</a>
-
-</div>

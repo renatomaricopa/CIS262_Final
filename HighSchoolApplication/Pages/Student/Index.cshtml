@@ -8,6 +8,10 @@
     <p>Welcome to the @ViewData["Title"] page.</p>
 </div>
 
+<div>
+    <a class="btn btn-primary" asp-page="./Edit">Add a New Student</a>
+</div>
+
 <table class=" table table-stripped" cellpadding="4">
     <tr>
         <th scope="col">
@@ -18,9 +22,6 @@
         </th>
         <th scope="col">
             Last Name
-        </th>
-        <th scope="col">
-            Add Exam
         </th>
         <th scope="col">
             Edit
@@ -42,21 +43,16 @@
                 @student.LastName
             </td>
             <td>
-                <a asp-page="../Exam/Index" asp-route-id="@student.StudentId">Add Exam</a>
+                <a class="btn btn-outline-warning" asp-page="./Edit" asp-route-id="@student.StudentId">Edit Student</a>
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@student.StudentId">Edit Student</a>
-            </td>
-            <td>
-                <a asp-page="./Delete" asp-route-id="@student.StudentId">Delete Student</a>
+                <a class="btn btn-outline-danger " asp-page="./Delete" asp-route-id="@student.StudentId">Delete Student</a>
             </td>
         </tr>
     }
-</tablec>
+</table>
 
-<div>
-    <a asp-page="./Edit">Add a New Student</a>
-</div>
+
 
 
 
