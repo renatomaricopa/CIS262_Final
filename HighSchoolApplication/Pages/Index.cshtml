@@ -4,7 +4,92 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class=" mt-4 p-5 bg-primary text-white rounded">
+    <div class="text-center">
+        <h1 class="display-4">CIS262AD<br/><small>Final Project</small></h1>
+    </div>
+</div>
+
+<div class="lead">
+    <p>
+    <br/>
+    For this project, create a Web-based ASP.NET Application. <br />
+    This application will be used by a high school to keep track of teachers, students, and student exam scores.<br/>
+    You must create a user interface that allows a user to view, insert, update, and delete data from the following tables:
+    </p>
+    <ul class="list-unstyled">
+        <li>
+            Teacher
+        </li>
+        <li>
+            Student
+        </li>
+        <li>
+            Exam
+        </li>
+
+    </ul>
+</div>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+        The teacher table has the following columns:
+        </dt>
+
+        <dd>
+            TeacherId (int)
+        </dd>
+            
+        <dd>
+            FirstName (string)
+        </dd>
+           
+        <dd>
+            LastName (string)
+        </dd>
+    </dl>
+
+        <dl>
+        <dt>
+            The student table has the following columns:
+        </dt>
+
+        <dd>
+            StudentId (int)
+        </dd>
+            
+        <dd>
+            FirstName (string)
+        </dd>
+           
+        <dd>
+            LastName (string)
+        </dd>
+    </dl>    
+    <dl>
+        <dt>
+            The exam table has the following columns:
+        </dt>
+
+        <dd>
+            ExamId (int)
+        </dd>
+            
+        <dd>
+            StudentId (int)
+        </dd>
+           
+        <dd>
+            Score (int)
+        </dd>
+    </dl>
+</div>
+<div class="lead">
+    <p>
+    You must use the user interface principles that you learned in this course.<br/>
+    Make sure that your application looks good and is easy for users to use (review the rubric for more information on this).<br/>
+    Make sure to validate the exam scores that users enter (use range checks).<br/>
+    <br/>
+    Lastly, create a Report page that displays the total number of letter grades by type (A, B, C, D, and F). 
+    </p>
 </div>

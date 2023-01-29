@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
-
-using HighSchoolClasses.DAL;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using HighSchoolClasses.DAL;
+
 
 namespace HighSchoolApplication.Pages.Exam
 {
@@ -18,39 +18,54 @@ namespace HighSchoolApplication.Pages.Exam
             _examAdapter = examAdapter;
             _studentAdapter = studentAdapter;
         }
-        public List<SelectListItem> StudentOptions { get; set; }
+        public List<SelectListItem> StudentNames { get; set; }
+
         [BindProperty]
         [DisplayName("Student")]
         [Range(1, double.MaxValue,
         ErrorMessage = "Please select a student")]
-
-  
         public int StudentId { get; set; }
-        [BindProperty]
-        [Range(1, 15000)]
 
-     
+
+        [BindProperty]
+       
         public int ExamId { get; set; }
+
+
         [BindProperty]
+        [Range(1,100, ErrorMessage = "Scores have values from 0 to 100")]
         public int Score { get; set; }
+
         public bool IsSuccess { get; set; }
-        public List<SelectListItem> Exam { get; set; }
+        //public List<SelectListItem> Exam { get; set; }
 
 
 
-        public void OnGet(int studentId = 0)
+        public void OnGet(int id = 0)
         {
-            if (studentId > 0)
-            {
-                //HighSchoolClasses.DAL.Exam exam = (HighSchoolClasses.DAL.Exam)_examAdapter.GetGradesByStudentId(studentId);
-                HighSchoolClasses.DAL.Exam exam = (HighSchoolClasses.DAL.Exam)_examAdapter.GetGradesByStudentId(studentId);
+            GetStudentNames();
 
-                if (exam != null)
-                {
-                    ExamId = exam.ExamId;
-                    StudentId = exam.StudentId;
-                    ExamId = exam.Score;
-                }
+            if (id > 0)
+            {
+
+                HighSchoolClasses.DAL.Exam exam  = (HighSchoolClasses.DAL.Exam)_examAdapter.GetByStudentId(id);
+
+                StudentId = exam.StudentId;
+                Score = exam.Score;
+            }
+            
+        }
+
+        public void GetStudentNames()
+        {
+            StudentNames = new List<SelectListItem>();
+            IEnumerable<HighSchoolClasses.DAL.Student> students = _studentAdapter.GetAllStudents();
+            foreach (HighSchoolClasses.DAL.Student student in students)
+            {
+                SelectListItem nameToAdd = new SelectListItem();
+                nameToAdd.Text = student.FirstName + " " + student.LastName;
+                nameToAdd.Value = student.StudentId.ToString();
+                StudentNames.Add(nameToAdd);
             }
         }
         public void OnPost()

@@ -8,8 +8,9 @@
     <h1 class="display-4">@ViewData["Title"]</h1>
     <p>Welcome to the @ViewData["Title"] page.</p>
 </div>
-
-<table class="table table-stripped" cellpadding="4">
+<div class="jumbotron">
+    
+        <table class="table table-bordered table-hover" cellpadding="4">
     <tr>
         <th scope="col">
             Student First Name
@@ -46,67 +47,7 @@
         </tr>
     }
 </table>
-
-@*<div>
-
-    <a class="button" asp-page="./Edit">Add a New Exam</a>
-
+    
 </div>
-
-
-<center><h2>Letter Grades by Student (Pie Chart)</h2></center>
-
-<canvas id="myPieChart"></canvas>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
-
-<script>
-    var mychart = document.getElementById("myPieChart").getContext('2d');
-
-    let data = @Json.Serialize(Model.Reports);
-
-    let round_graph = new Chart(mychart, {
-        type: 'pie',
-        data: {
-            labels: data.map(o => o.examId),
-            datasets: [{
-                lable: 'Sales by Country',
-                data: data.map(o => o.grade),
-                backgroundColor: [
-                    '#16b751',
-                    '#e5edce',
-                    '#0c8cd6',
-                    '#436972',
-                    '#1b2615',
-                    '#74b7d3',
-                    '#338484',
-                    '#847e6f',
-                    '#878785',
-                    '#300147',
-                    '#647260',
-                    '#dde0d9',
-                    '#63cc67',
-                    '#d7e0dc',
-                    '#c8bdef',
-                    '#6b6b6b',
-                    '#f2dade',
-                    '#563e35',
-                    '#c98e22',
-                    '#050402',
-                    '#1fdfe2',
-                    '#21191b',
-                    '#206357',
-                    '#ed68ff'
-
-                ],
-                hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-                hoverBorderColor: "rgba(234, 236, 244, 1)",
-            }]
-        }
-
-    })
-
-</script>*@
-
 
 
